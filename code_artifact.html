@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>李子靜 Li Zi-Jing｜個人簡歷與學涯展示</title>
+  <meta name="description" content="李子靜（Li Zi-Jing）個人介紹網頁｜龍華科技大學工業管理學系大一在學中，ISTJ 自律邏輯型人格，3+4產學攜手計畫跨文化成長歷程、專業證照與未來職涯藍圖。" />
+
+  <!-- 載入 Google Fonts：Noto Sans TC (繁體中文) 與 Plus Jakarta Sans (英文數字) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- 防止深淺色切換閃爍的初始化腳本 -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('lzj-portfolio-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (err) {
+        // 忽略受限環境下的 localStorage 錯誤
+      }
+    })();
+  </script>
+
+  <style>
+    /* ==========================================================================
+       1. 設計系統變數 (點陣筆記本 + 鼠尾草綠 / 薰衣草紫 / 暖琥珀金)
+       ========================================================================== */
+    :root {
+      /* 淺色模式：溫暖米白底色與點陣網格 */
+      --bg-page: #faf8f5;
+      --bg-dot: #dfd9cf;
+      --bg-card: #ffffff;
+      --bg-subtle: #f3efe8;
+      --bg-nav: rgba(250, 248, 245, 0.88);
+
+      --text-primary: #222629;
+      --text-secondary: #525860;
+      --text-muted: #767d87;
+
+      /* 品牌三大點綴色 */
+      --sage: #4a6b5d;
+      --sage-hover: #3b574b;
+      --sage-soft: #e9f0ec;
+      --sage-border: #c5d6ce;
+
+      --lavender: #7a6382;
+      --lavender-soft: #f1ecf3;
+      --lavender-border: #d7cbe0;
+
+      --amber: #c48b28;
+      --amber-soft: #faf2e1;
+      --amber-border: #ebd7ae;
+
+      --border-color: #e6e0d6;
+      --shadow-xs: 0 2px 6px rgba(34, 38, 41, 0.04);
+      --shadow-sm: 0 8px 24px -4px rgba(34, 38, 41, 0.06);
+      --shadow-md: 0 16px 36px -8px rgba(74, 107, 93, 0.14);
+
+      --nav-height: 70px;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+      --transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* 深色模式：溫潤炭灰與柔光點綴 */
+    [data-theme="dark"] {
+      --bg-page: #14171a;
+      --bg-dot: #262b30;
+      --bg-card: #1c2024;
+      --bg-subtle: #23282d;
+      --bg-nav: rgba(20, 23, 26, 0.88);
+
+      --text-primary: #f1efe9;
+      --text-secondary: #c2c6cc;
+      --text-muted: #8e959e;
+
+      --sage: #73a38e;
+      --sage-hover: #89b8a3;
+      --sage-soft: rgba(115, 163, 142, 0.16);
+      --sage-border: rgba(115, 163, 142, 0.34);
+
+      --lavender: #b398bd;
+      --lavender-soft: rgba(179, 152, 189, 0.16);
+      --lavender-border: rgba(179, 152, 189, 0.34);
+
+      --amber: #e2ae52;
+      --amber-soft: rgba(226, 174, 82, 0.16);
+      --amber-border: rgba(226, 174, 82, 0.34);
+
+      --border-color: #2c3137;
+      --shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.25);
+      --shadow-sm: 0 10px 26px -4px rgba(0, 0, 0, 0.38);
+      --shadow-md: 0 18px 38px -8px rgba(0, 0, 0, 0.52);
+    }
+
+    /* ==========================================================================
+       2. 基礎樣式重置與點陣筆記本背景
+       ========================================================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 18px);
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg-page);
+      /* 靈感源自簡報的點陣筆記本背景紋理 */
+      background-image: radial-gradient(var(--bg-dot) 1.35px, transparent 1.35px);
+      background-size: 22px 22px;
+      color: var(--text-primary);
+      line-height: 1.75;
+      font-size: 16px;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto 52px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--sage);
+      background-color: var(--sage-soft);
+      border: 1px solid var(--sage-border);
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3.4vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+    }
+
+    /* 通用按鈕 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.95rem;
+      min-height: 46px;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--sage);
+      color: #ffffff;
+      box-shadow: 0 8px 20px -4px rgba(74, 107, 93, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--sage-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -4px rgba(74, 107, 93, 0.45);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--sage);
+      color: var(--sage);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ==========================================================================
+       3. 頂部固定導覽列 (Sticky Navbar)
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      background-color: var(--bg-nav);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .navbar-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
+
+    .brand-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--sage) 0%, #5e8574 100%);
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 10px rgba(74, 107, 93, 0.25);
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link {
+      padding: 8px 13px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--sage);
+      background-color: var(--sage-soft);
+      font-weight: 600;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .icon-btn:hover {
+      color: var(--sage);
+      border-color: var(--sage);
+      transform: translateY(-1px);
+    }
+
+    .icon-sun {
+      display: none;
+    }
+    .icon-moon {
+      display: block;
+    }
+    [data-theme="dark"] .icon-sun {
+      display: block;
+    }
+    [data-theme="dark"] .icon-moon {
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* 手機版展開選單 */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 24px 22px;
+      box-shadow: var(--shadow-md);
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+      animation: fadeSlideDown 0.24s ease forwards;
+    }
+
+    .mobile-drawer .nav-link {
+      display: block;
+      padding: 12px 16px;
+      font-size: 1rem;
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       4. 首屏主視覺 (Hero Section)
+       ========================================================================== */
+    .hero {
+      padding: 64px 0 88px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 44px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 13px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .tag-sage {
+      background-color: var(--sage-soft);
+      color: var(--sage);
+      border: 1px solid var(--sage-border);
+    }
+
+    .tag-lavender {
+      background-color: var(--lavender-soft);
+      color: var(--lavender);
+      border: 1px solid var(--lavender-border);
+    }
+
+    .tag-amber {
+      background-color: var(--amber-soft);
+      color: var(--amber);
+      border: 1px solid var(--amber-border);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4.6vw, 3.3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .hero-en-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.08rem, 2vw, 1.3rem);
+      font-weight: 600;
+      color: var(--sage);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 座右銘與個人信念卡片 */
+    .motto-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--lavender);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin-bottom: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .motto-quote {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--lavender);
+      margin-bottom: 4px;
+    }
+
+    .motto-belief {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .motto-belief strong {
+      color: var(--text-primary);
+      background: linear-gradient(transparent 62%, var(--amber-soft) 62%);
+      padding: 0 4px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* 右側 SVG 幾何個人名片視覺徽章 */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .id-badge-card {
+      width: 100%;
+      max-width: 360px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .id-badge-card:hover {
+      transform: translateY(-4px) rotate(0.6deg);
+    }
+
+    .id-badge-notch {
+      width: 56px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      margin: 0 auto 16px;
+    }
+
+    /* ==========================================================================
+       5. 關於我 (About Me) & 成長故事 (My Story)
+       ========================================================================== */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .notebook-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--lavender);
+      background-color: var(--lavender-soft);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+    }
+
+    .notebook-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .notebook-card p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .trait-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .trait-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background-color: var(--bg-subtle);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .trait-chip svg {
+      color: var(--sage);
+    }
+
+    /* 基本資料小方格 */
+    .profile-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .profile-meta-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-xs);
+      transition: var(--transition);
+    }
+
+    .profile-meta-item:hover {
+      border-color: var(--sage);
+      transform: translateX(4px);
+    }
+
+    .meta-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .meta-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .meta-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* 跨文化成長故事四部曲 */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .story-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--sage-border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .story-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+    }
+
+    .story-card h4 {
+      font-size: 1.16rem;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .story-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* ==========================================================================
+       6. 工管專長與核心技能 (Academic Focus & Skills)
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .skill-card.theme-sage:hover {
+      border-color: var(--sage);
+    }
+    .skill-card.theme-lavender:hover {
+      border-color: var(--lavender);
+    }
+    .skill-card.theme-amber:hover {
+      border-color: var(--amber);
+    }
+
+    .skill-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .theme-sage .skill-icon-box {
+      background-color: var(--sage-soft);
+      color: var(--sage);
+    }
+    .theme-lavender .skill-icon-box {
+      background-color: var(--lavender-soft);
+      color: var(--lavender);
+    }
+    .theme-amber .skill-icon-box {
+      background-color: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .skill-card h3 {
+      font-size: 1.22rem;
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .skill-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-keywords span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 7px;
+      background-color: var(--bg-subtle);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+
+    /* ==========================================================================
+       7. 專業證照與重點成就 (Certificates & Honors — 含互動分類篩選)
+       ========================================================================== */
+    .cert-wrapper {
+      margin-top: 68px;
+      padding-top: 56px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .filter-btn {
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 600;
+      background-color: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      min-height: 42px;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--sage);
+      color: var(--sage);
+    }
+
+    .filter-btn.active {
+      background-color: var(--sage);
+      color: #ffffff;
+      border-color: var(--sage);
+      box-shadow: 0 6px 16px rgba(74, 107, 93, 0.25);
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .cert-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .cert-card.hidden {
+      display: none;
+    }
+
+    .cert-card.animate-in {
+      animation: popIn 0.32s ease forwards;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cert-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .cert-index {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .cert-honor-pill {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: var(--radius-full);
+    }
+
+    .cert-seal {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .cert-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .cert-card p {
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+      flex: 1;
+    }
+
+    /* ==========================================================================
+       8. 實務與專案經歷 (Practical Experience)
+       ========================================================================== */
+    .exp-tags-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .exp-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .exp-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--lavender);
+      box-shadow: var(--shadow-md);
+    }
+
+    .exp-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .exp-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .exp-card h3 {
+      font-size: 1.14rem;
+      line-height: 1.35;
+    }
+
+    .exp-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+    }
+
+    /* ==========================================================================
+       9. 未來規劃與發展藍圖 (Future Goals & Roadmap)
+       ========================================================================== */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      position: relative;
+    }
+
+    .roadmap-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .roadmap-period {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+    }
+
+    .roadmap-step-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      opacity: 0.16;
+      position: absolute;
+      top: 24px;
+      right: 24px;
+    }
+
+    .roadmap-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+    }
+
+    .roadmap-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+    }
+
+    /* ==========================================================================
+       10. 聯絡方式與頁尾 (Contact & Footer)
+       ========================================================================== */
+    .contact-card {
+      max-width: 820px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 44px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-items {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 30px 0 28px;
+      text-align: left;
+    }
+
+    .contact-item-box {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .contact-item-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .contact-item-val {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      word-break: break-all;
+    }
+
+    .mini-copy-btn {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sage);
+      background-color: var(--sage-soft);
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .mini-copy-btn:hover {
+      background-color: var(--sage);
+      color: #ffffff;
+    }
+
+    .contact-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .footer-copy {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .back-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 15px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .back-top-btn:hover {
+      border-color: var(--sage);
+      color: var(--sage);
+      transform: translateY(-2px);
+    }
+
+    /* 自訂複製成功提示 Toast (取代 alert) */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--sage);
+      color: #ffffff;
+      padding: 13px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      font-weight: 600;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(14px);
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .toast.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       11. 響應式斷點設計 (RWD)
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 36px;
+      }
+
+      .hero-tags,
+      .hero-title,
+      .hero-subtitle,
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .motto-box {
+        text-align: left;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .certs-grid,
+      .exp-grid,
+      .roadmap-grid,
+      .contact-items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 68px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .story-grid,
+      .skills-grid,
+      .certs-grid,
+      .exp-grid,
+      .roadmap-grid,
+      .contact-items {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        padding: 32px 20px;
+      }
+
+      .toast {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       頂部固定導覽列 (Sticky Navbar)
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#top" class="brand" aria-label="回到頂部">
+        <span class="brand-badge">LZJ</span>
+        <span>李子靜 <span class="brand-sub">Li Zi-Jing</span></span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="主導覽選單">
+          <a href="#about" class="nav-link">關於我</a>
+          <a href="#story" class="nav-link">成長故事</a>
+          <a href="#skills-certs" class="nav-link">專長與證照</a>
+          <a href="#experience" class="nav-link">實務經歷</a>
+          <a href="#roadmap" class="nav-link">未來藍圖</a>
+          <a href="#contact" class="nav-link">聯絡方式</a>
+        </nav>
+
+        <!-- 淺色／深色主題切換按鈕 -->
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="切換淺色或深色模式" title="切換主題模式">
+          <svg class="icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- 手機版漢堡選單按鈕 -->
+        <button id="mobileMenuBtn" class="icon-btn mobile-menu-btn" type="button" aria-label="開啟手機選單" aria-expanded="false">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 手機版下拉選單 -->
+  <nav id="mobileDrawer" class="mobile-drawer" aria-label="手機版導覽選單">
+    <a href="#about" class="nav-link mobile-nav-link">關於我</a>
+    <a href="#story" class="nav-link mobile-nav-link">成長故事</a>
+    <a href="#skills-certs" class="nav-link mobile-nav-link">專長與證照</a>
+    <a href="#experience" class="nav-link mobile-nav-link">實務經歷</a>
+    <a href="#roadmap" class="nav-link mobile-nav-link">未來藍圖</a>
+    <a href="#contact" class="nav-link mobile-nav-link">聯絡方式</a>
+  </nav>
+
+  <main id="top">
+    <!-- ======================================================================
+         1. 首屏主視覺 (Hero Section)
+         ====================================================================== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <!-- 身份與人格標籤 -->
+          <div class="hero-tags">
+            <span class="tag-pill tag-sage">Personal Resume 2026</span>
+            <span class="tag-pill tag-lavender">#ISTJ 自律邏輯型人格</span>
+            <span class="tag-pill tag-amber">#3+4產學攜手計畫</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span>李子靜</span>
+            <span class="hero-en-name">Li Zi-Jing</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+            <span>龍華科技大學 工業管理學系 大一在學中</span>
+          </p>
+
+          <!-- 座右銘與個人信念卡片 -->
+          <div class="motto-box">
+            <p class="motto-quote">“We are our choices.” —「我們即是我們的選擇。」</p>
+            <p class="motto-belief">核心信念：<strong>「知識改寫命運，專長安身立命」</strong></p>
+          </div>
+
+          <!-- 行動呼籲按鈕 -->
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">
+              <span>查看學習歷程</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <button type="button" class="btn btn-secondary copy-email-trigger" data-copy="w1154251004@gm.lhu.edu.tw" data-label="聯絡信箱">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>複製聯絡信箱</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 右側 SVG 幾何個人名片視覺徽章 -->
+        <div class="hero-visual">
+          <div class="id-badge-card">
+            <div class="id-badge-notch"></div>
+            <svg viewBox="0 0 320 310" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="李子靜 工業管理學系 幾何個人名片視覺徽章">
+              <defs>
+                <linearGradient id="cardHeaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#4A6B5D" />
+                  <stop offset="100%" stop-color="#648A7A" />
+                </linearGradient>
+                <pattern id="miniDots" width="14" height="14" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1.1" fill="#4A6B5D" fill-opacity="0.16" />
+                </pattern>
+              </defs>
+
+              <!-- 基底幾何卡片 -->
+              <rect x="4" y="4" width="312" height="302" rx="18" fill="url(#miniDots)" />
+              <rect x="12" y="12" width="296" height="114" rx="14" fill="url(#cardHeaderGrad)" />
+
+              <!-- 工業管理象徵：雙齒輪與系統節點幾何圖形 -->
+              <g stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.22">
+                <circle cx="258" cy="68" r="28" stroke-dasharray="6 4" />
+                <circle cx="258" cy="68" r="14" />
+                <circle cx="212" cy="96" r="16" stroke-dasharray="4 3" />
+              </g>
+
+              <!-- 個人英文縮寫徽章 -->
+              <rect x="28" y="30" width="54" height="54" rx="14" fill="#FAF8F5" />
+              <text x="55" y="64" text-anchor="middle" fill="#4A6B5D" font-family="Plus Jakarta Sans, sans-serif" font-size="20" font-weight="800">LZJ</text>
+
+              <!-- 卡片抬頭資訊 -->
+              <text x="96" y="53" fill="#FFFFFF" font-family="Noto Sans TC, sans-serif" font-size="18" font-weight="700">李子靜 Li Zi-Jing</text>
+              <text x="96" y="76" fill="#E9F0EC" font-family="Noto Sans TC, sans-serif" font-size="12" font-weight="500">龍華科技大學｜工業管理學系</text>
+
+              <!-- 標籤膠囊 -->
+              <rect x="28" y="96" width="84" height="20" rx="10" fill="rgba(255,255,255,0.2)" />
+              <text x="70" y="110" text-anchor="middle" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="700">ISTJ LOGISTIC</text>
+
+              <rect x="120" y="96" width="96" height="20" rx="10" fill="rgba(255,255,255,0.2)" />
+              <text x="168" y="110" text-anchor="middle" fill="#FFFFFF" font-family="Noto Sans TC, sans-serif" font-size="10.5" font-weight="600">3+4 產學攜手</text>
+
+              <!-- 中段指標數據塊 (鼠尾草綠 / 薰衣草紫 / 暖琥珀金) -->
+              <rect x="12" y="140" width="92" height="74" rx="12" fill="#E9F0EC" stroke="#C5D6CE" stroke-width="1" />
+              <text x="58" y="166" text-anchor="middle" fill="#4A6B5D" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700">MAJOR</text>
+              <text x="58" y="191" text-anchor="middle" fill="#222629" font-family="Noto Sans TC, sans-serif" font-size="14" font-weight="700">工業管理</text>
+
+              <rect x="114" y="140" width="92" height="74" rx="12" fill="#F1ECF3" stroke="#D7CBE0" stroke-width="1" />
+              <text x="160" y="166" text-anchor="middle" fill="#7A6382" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700">TOCFL</text>
+              <text x="160" y="191" text-anchor="middle" fill="#222629" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700">C1 流利級</text>
+
+              <rect x="216" y="140" width="92" height="74" rx="12" fill="#FAF2E1" stroke="#EBD7AE" stroke-width="1" />
+              <text x="262" y="166" text-anchor="middle" fill="#C48B28" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700">CERTIFICATES</text>
+              <text x="262" y="191" text-anchor="middle" fill="#222629" font-family="Noto Sans TC, sans-serif" font-size="14" font-weight="700">雙國家證照</text>
+
+              <!-- 底部筆記線條與座右銘摘要 -->
+              <rect x="12" y="228" width="296" height="66" rx="12" fill="#F3EFE8" stroke="#E6E0D6" stroke-width="1" />
+              <circle cx="30" cy="251" r="4" fill="#4A6B5D" />
+              <text x="42" y="255" fill="#222629" font-family="Noto Sans TC, sans-serif" font-size="12" font-weight="700">系統化思維 × 品質管理 × 踏實執行力</text>
+              <text x="42" y="276" fill="#525860" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">2006.07.28 ｜ Yangon → Taiwan (LHU)</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2A. 關於我 (About Me — 個人特質與基本資料)
+         ====================================================================== -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">01 · About Me</span>
+          <h2 class="section-title">個人簡介與核心特質</h2>
+          <p class="section-subtitle">熱情探索、持續學習，以嚴謹邏輯與高度責任感面對每一項任務。</p>
+        </div>
+
+        <div class="about-layout">
+          <!-- 左側：工作態度與核心競爭優勢 -->
+          <div class="notebook-card">
+            <span class="card-kicker">#ISTJ 自律邏輯型人格</span>
+            <h3>對待工作認真嚴謹，重視品質與結果</h3>
+            <p>
+              我是李子靜，目前就讀於龍華科技大學工業管理學系一年級。身為典型的 <strong>ISTJ 自律邏輯型人格</strong>，我注重邏輯思考與問題解決，具備認真嚴謹的執行力與細緻的溝通熱情。
+            </p>
+            <p>
+              在團隊合作與日常學習中，我習慣先釐清流程架構與目標細節，透過有條理的規劃有效減少執行疏漏，並積極傾聽夥伴意見，促進團隊順暢協作、如期達成高品質成果。
+            </p>
+
+            <!-- 三大個人標籤 -->
+            <div class="trait-tags">
+              <span class="trait-chip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                邏輯清晰
+              </span>
+              <span class="trait-chip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                責任感強
+              </span>
+              <span class="trait-chip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                跨領域學習
+              </span>
+            </div>
+          </div>
+
+          <!-- 右側：基本資料卡片組 -->
+          <div class="profile-meta-list">
+            <div class="profile-meta-item">
+              <div class="meta-icon" style="background-color: var(--sage-soft); color: var(--sage);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div>
+                <div class="meta-label">姓名 / 出生日期</div>
+                <div class="meta-value">李子靜（2006 年 7 月 28 日）</div>
+              </div>
+            </div>
+
+            <div class="profile-meta-item">
+              <div class="meta-icon" style="background-color: var(--lavender-soft); color: var(--lavender);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="meta-label">就讀學校與系所</div>
+                <div class="meta-value">龍華科技大學 工業管理學系（大一）</div>
+              </div>
+            </div>
+
+            <div class="profile-meta-item">
+              <div class="meta-icon" style="background-color: var(--amber-soft); color: var(--amber);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <div>
+                <div class="meta-label">成長背景與文化根基</div>
+                <div class="meta-value">緬甸仰光出生｜家族源自中國雲南</div>
+              </div>
+            </div>
+
+            <div class="profile-meta-item">
+              <div class="meta-icon" style="background-color: var(--sage-soft); color: var(--sage);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <div>
+                <div class="meta-label">求學歷程專案</div>
+                <div class="meta-value">台灣「3+4 產學攜手合作計畫」</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2B. 跨文化成長故事 (My Story & Roots)
+         ====================================================================== -->
+    <section id="story" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">02 · My Story</span>
+          <h2 class="section-title">跨文化成長故事與初心</h2>
+          <p class="section-subtitle">從仰光到台灣，承載家族對教育的期許與父母的身教，踏實走好每一步。</p>
+        </div>
+
+        <div class="story-grid">
+          <!-- 故事篇章 1 -->
+          <article class="story-card">
+            <span class="story-step tag-sage">CHAPTER 01 · 家族根基</span>
+            <h4>雲南遷徙記憶與「好好讀書」的家族鐵律</h4>
+            <p>
+              2006 年 7 月 28 日，我出生於緬甸仰光，而家族的根基其實在中國雲南。早年因戰亂，外公外婆與爺爺奶奶被迫背井離鄉逃亡至緬甸落腳。歷經語言不通與異國生活的艱辛，長輩們深知知識的力量，將「好好讀書、改變命運」化作家族鐵律，也讓我深信「知識改寫命運，專長安身立命」。
+            </p>
+          </article>
+
+          <!-- 故事篇章 2 -->
+          <article class="story-card">
+            <span class="story-step tag-amber">CHAPTER 02 · 家庭身教</span>
+            <h4>麵包師傅父親的職人火候與母親的溫柔支持</h4>
+            <p>
+              父親是一名麵包師傅，他不善言辭，卻總是起早貪黑默默扛起整個家庭的重擔，用實際行動教會我什麼是責任與擔當；母親則性格溫柔細膩，對我的生活關懷備至，她的愛如同拂面春風，給予我無盡的溫暖與在異鄉前行的力量。
+            </p>
+          </article>
+
+          <!-- 故事篇章 3 -->
+          <article class="story-card">
+            <span class="story-step tag-lavender">CHAPTER 03 · 跨海求學</span>
+            <h4>參加「3+4 產學攜手計畫」隻身來台磨礪</h4>
+            <p>
+              帶著家族的期盼與對知識的渴望，我在三年前選擇參加台灣的「3+4 產學攜手合作計畫」，跨越千里來到台灣就讀高中。從初來乍到的迷茫到完全適應台灣的生活步調，我在思鄉的孤寂中磨礪出獨立堅韌的性格，也打下了紮實的學科與實務基礎。
+            </p>
+          </article>
+
+          <!-- 故事篇章 4 -->
+          <article class="story-card">
+            <span class="story-step tag-sage">CHAPTER 04 · 工管啟航</span>
+            <h4>以烘焙般的精準精神鑽研工業管理專業</h4>
+            <p>
+              如今順利邁入計畫的大學階段，成為龍華科技大學工業管理系的新生。我期許自己能像父親揉捏麵糰、精準掌控火候那般，踏實學好品質管理、生產規劃與系統化資源配置等專業技能，持續考取證照並在實務中精進，讓長輩寄託的希望綻放豐碩果實。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3 & 4. 工管專長與核心技能 + 專業證照與重點成就 (Skills & Certificates)
+         ====================================================================== -->
+    <section id="skills-certs" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">03 · Academic Focus &amp; Skills</span>
+          <h2 class="section-title">工管專長與核心技能</h2>
+          <p class="section-subtitle">結合工業管理系統化思維、數據工具應用與高階跨語言溝通能力。</p>
+        </div>
+
+        <!-- 三大核心領域卡片 -->
+        <div class="skills-grid">
+          <!-- 領域 1：工業管理專業 -->
+          <div class="skill-card theme-sage">
+            <div class="skill-icon-box">
+              <!-- 齒輪與流程優化 SVG -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </div>
+            <h3>工業管理專業</h3>
+            <p>研習生產管理、作業研究與品質管理，具備流程優化思維與系統化分析架構。</p>
+            <div class="skill-keywords">
+              <span>生產管理</span>
+              <span>作業研究</span>
+              <span>品質管理</span>
+              <span>流程優化</span>
+            </div>
+          </div>
+
+          <!-- 領域 2：資訊軟體應用 -->
+          <div class="skill-card theme-lavender">
+            <div class="skill-icon-box">
+              <!-- 程式碼與數據視窗 SVG -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <polyline points="9 8 6 10 9 12"></polyline>
+                <polyline points="15 8 18 10 15 12"></polyline>
+              </svg>
+            </div>
+            <h3>資訊軟體應用</h3>
+            <p>熟練 Office 辦公軟體操作與試算表數據處理，並持續進修 Python 基礎程式與統計數據分析工具。</p>
+            <div class="skill-keywords">
+              <span>Office 辦公軟體</span>
+              <span>試算表數據處理</span>
+              <span>Python 基礎程式</span>
+              <span>統計數據分析</span>
+            </div>
+          </div>
+
+          <!-- 領域 3：跨語言溝通力 -->
+          <div class="skill-card theme-amber">
+            <div class="skill-icon-box">
+              <!-- 跨語言翻譯溝通 SVG -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m5 8 6 6"></path>
+                <path d="m4 14 6-6 2-3"></path>
+                <path d="M2 5h12"></path>
+                <path d="M7 2h1"></path>
+                <path d="m22 22-5-10-5 10"></path>
+                <path d="M14 18h6"></path>
+              </svg>
+            </div>
+            <h3>跨語言溝通力</h3>
+            <p>通過華測 C1（Level 5）高階認證，具備流利華語表達與多元文化溝通適應能力。</p>
+            <div class="skill-keywords">
+              <span>華測 C1 (Level 5)</span>
+              <span>流利華語表達</span>
+              <span>跨文化溝通</span>
+              <span>多元環境適應</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 專業證照與重點成就 (Certificates & Honors) -->
+        <div class="cert-wrapper">
+          <div class="section-header" style="margin-bottom: 32px;">
+            <span class="section-eyebrow">Certificates &amp; Honors</span>
+            <h2 class="section-title">專業證照與重點成就</h2>
+            <p class="section-subtitle">透過國家級技術士檢定與高階語言認證，驗證實務操作與專業實力。</p>
+          </div>
+
+          <!-- 互動式分類篩選按鈕 -->
+          <div class="filter-tabs" role="tablist" aria-label="證照分類篩選">
+            <button type="button" class="filter-btn active" data-filter="all">全部證照 (3)</button>
+            <button type="button" class="filter-btn" data-filter="skill">技能檢定</button>
+            <button type="button" class="filter-btn" data-filter="it">資訊能力</button>
+            <button type="button" class="filter-btn" data-filter="language">語言檢定</button>
+          </div>
+
+          <div class="certs-grid" id="certsGrid">
+            <!-- 證照 1：門市服務丙級技術士證照 -->
+            <article class="cert-card" data-category="skill">
+              <div class="cert-top-row">
+                <span class="cert-index">01 / 技能檢定</span>
+                <span class="cert-honor-pill tag-sage">★ 國家級技術士證照</span>
+              </div>
+              <div class="cert-seal" style="background-color: var(--sage-soft); color: var(--sage);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+              <h4>門市服務丙級技術士證照</h4>
+              <p>具備門市營運實務、商品管理、賣場清潔維護與專業顧客服務能力。</p>
+            </article>
+
+            <!-- 證照 2：電腦軟體應用丙級技術士證照 -->
+            <article class="cert-card" data-category="it">
+              <div class="cert-top-row">
+                <span class="cert-index">02 / 資訊能力</span>
+                <span class="cert-honor-pill tag-lavender">★ 高分優異成績通過</span>
+              </div>
+              <div class="cert-seal" style="background-color: var(--lavender-soft); color: var(--lavender);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                  <path d="M8 21h8"></path>
+                  <path d="M12 17v4"></path>
+                  <path d="m9 10 2 2 4-4"></path>
+                </svg>
+              </div>
+              <h4>電腦軟體應用丙級技術士證照</h4>
+              <p>熟練辦公室文書與資料處理軟體應用，並以高分優異成績通過國家技能檢定。</p>
+            </article>
+
+            <!-- 證照 3：華語文能力測驗 TOCFL C1 (Level 5) -->
+            <article class="cert-card" data-category="language">
+              <div class="cert-top-row">
+                <span class="cert-index">03 / 語言檢定</span>
+                <span class="cert-honor-pill tag-amber">★ 高階華語能力認證</span>
+              </div>
+              <div class="cert-seal" style="background-color: var(--amber-soft); color: var(--amber);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+              </div>
+              <h4>華語文能力測驗 TOCFL C1（Level 5）</h4>
+              <p>通過華測 C1 流利級高階檢定，具備精準理解複雜文本與專業口語簡報溝通實力。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. 實務與專案經歷 (Practical Experience)
+         ====================================================================== -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">04 · Practical Experience</span>
+          <h2 class="section-title">實務與專案經歷</h2>
+          <p class="section-subtitle">將課堂管理知識與服務證照融入團隊協作與現場執行。</p>
+          <div class="exp-tags-bar">
+            <span class="tag-pill tag-sage">#Teamwork</span>
+            <span class="tag-pill tag-lavender">#Coordination</span>
+            <span class="tag-pill tag-amber">#ServiceExcellence</span>
+          </div>
+        </div>
+
+        <div class="exp-grid">
+          <!-- 經歷 1 -->
+          <article class="exp-card">
+            <div class="exp-header">
+              <div class="exp-icon" style="background-color: var(--sage-soft); color: var(--sage);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3>校園課務與專案協作</h3>
+            </div>
+            <p>負責小組專案資料彙整、流程梳理與簡報展示，透過清楚的進度分工與邏輯架構，確保團隊成果如期達成。</p>
+          </article>
+
+          <!-- 經歷 2 -->
+          <article class="exp-card">
+            <div class="exp-header">
+              <div class="exp-icon" style="background-color: var(--lavender-soft); color: var(--lavender);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <h3>活動籌備與跨部門溝通</h3>
+            </div>
+            <p>參與校園活動企劃，協助活動現場動線調度與成員內部聯繫，培養細膩觀察力與跨組協調溝通效率。</p>
+          </article>
+
+          <!-- 經歷 3 -->
+          <article class="exp-card">
+            <div class="exp-header">
+              <div class="exp-icon" style="background-color: var(--amber-soft); color: var(--amber);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              </div>
+              <h3>門市服務實務經驗</h3>
+            </div>
+            <p>活用門市服務技術士專業知識，在第一線服務中展現親切、高效率的顧客應對與突發狀況臨場應變能力。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. 未來規劃與發展藍圖 (Future Goals & Roadmap)
+         ====================================================================== -->
+    <section id="roadmap" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">05 · Future Goals &amp; Roadmap</span>
+          <h2 class="section-title">未來規劃與發展藍圖</h2>
+          <p class="section-subtitle">Step by Step，從學術紮根、工具拓展到企業實戰的短中長期成長路徑。</p>
+        </div>
+
+        <div class="roadmap-grid">
+          <!-- 短期 2026 -->
+          <article class="roadmap-card" style="border-top: 4px solid var(--sage);">
+            <span class="roadmap-step-num" style="color: var(--sage);">01</span>
+            <span class="roadmap-period tag-sage">短期 ｜ 2026</span>
+            <h3>學務深化與工具拓展</h3>
+            <p>紮實完成工業管理核心學術課程，持續考取專業證照，並深化 Python 程式與統計數據分析工具應用。</p>
+          </article>
+
+          <!-- 中期 2027 -->
+          <article class="roadmap-card" style="border-top: 4px solid var(--lavender);">
+            <span class="roadmap-step-num" style="color: var(--lavender);">02</span>
+            <span class="roadmap-period tag-lavender">中期 ｜ 2027</span>
+            <h3>企業實習與實務累積</h3>
+            <p>進入指標企業參與實習，將生產規劃、品質管理與流程優化理論實際應用於真實職場專案中。</p>
+          </article>
+
+          <!-- 長期 2028+ -->
+          <article class="roadmap-card" style="border-top: 4px solid var(--amber);">
+            <span class="roadmap-step-num" style="color: var(--amber);">03</span>
+            <span class="roadmap-period tag-amber">長期 ｜ 2028+</span>
+            <h3>專業專案管理人才</h3>
+            <p>整合系統化分析、跨文化溝通與實務經驗，成長為具備數據思維與優異執行力的管理專案經理。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. 聯絡方式 (Contact Section)
+         ====================================================================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card">
+          <span class="section-eyebrow">06 · Contact Me</span>
+          <h2 class="section-title">感謝您的瀏覽，歡迎交流與指導</h2>
+          <p class="section-subtitle">無論是學業專題合作、實習機會或跨文化交流，都歡迎透過以下方式與我聯繫。</p>
+
+          <div class="contact-items">
+            <!-- 電子信箱 -->
+            <div class="contact-item-box">
+              <div>
+                <div class="contact-item-top">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                  <span>電子信箱 Email</span>
+                </div>
+                <div class="contact-item-val" style="margin-top: 6px;">w1154251004@gm.lhu.edu.tw</div>
+              </div>
+              <button type="button" class="mini-copy-btn copy-email-trigger" data-copy="w1154251004@gm.lhu.edu.tw" data-label="電子信箱">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>一鍵複製信箱</span>
+              </button>
+            </div>
+
+            <!-- 聯絡電話 -->
+            <div class="contact-item-box">
+              <div>
+                <div class="contact-item-top">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <span>聯絡電話 Phone</span>
+                </div>
+                <div class="contact-item-val" style="margin-top: 6px;">0912-884-529</div>
+              </div>
+              <button type="button" class="mini-copy-btn copy-email-trigger" data-copy="0912-884-529" data-label="聯絡電話">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span>複製電話號碼</span>
+              </button>
+            </div>
+
+            <!-- 就讀校系 -->
+            <div class="contact-item-box">
+              <div>
+                <div class="contact-item-top">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                  <span>就讀校系 Affiliation</span>
+                </div>
+                <div class="contact-item-val" style="margin-top: 6px;">龍華科技大學 工業管理系</div>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">桃園市龜山區萬壽路一段300號</span>
+            </div>
+          </div>
+
+          <div class="contact-cta-row">
+            <a href="mailto:w1154251004@gm.lhu.edu.tw" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>立即發送電子郵件</span>
+            </a>
+            <a href="tel:0912884529" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>撥打聯絡電話</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       頁尾 (Footer)
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 李子靜 Li Zi-Jing. Built for GitHub Pages.</p>
+      <a href="#top" class="back-top-btn" aria-label="回到頁面頂部">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+        <span>回到頂部</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- 複製成功提示 Toast 元件 -->
+  <div id="copyToast" class="toast" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastText">已成功複製到剪貼簿！</span>
+  </div>
+
+  <!-- ========================================================================
+       互動功能腳本 (主題切換 / 手機選單 / 證照分類篩選 / 剪貼簿複製 / 導覽高亮)
+       ======================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. 深淺色主題一鍵切換與偏好儲存
+      var themeToggleBtn = document.getElementById('themeToggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+          var currentTheme = document.documentElement.getAttribute('data-theme');
+          var nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', nextTheme);
+          try {
+            localStorage.setItem('lzj-portfolio-theme', nextTheme);
+          } catch (e) {
+            // 忽略 localStorage 寫入受限
+          }
+        });
+      }
+
+      // 2. 手機版漢堡選單開關
+      var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      var mobileDrawer = document.getElementById('mobileDrawer');
+      var mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileMenuBtn && mobileDrawer) {
+        mobileMenuBtn.addEventListener('click', function () {
+          var isOpen = mobileDrawer.classList.toggle('open');
+          mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        mobileNavLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileDrawer.classList.remove('open');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 3. 專業證照分類篩選 (全部 / 技能檢定 / 資訊能力 / 語言檢定)
+      var filterButtons = document.querySelectorAll('.filter-btn');
+      var certCards = document.querySelectorAll('.cert-card');
+
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var selectedFilter = btn.getAttribute('data-filter');
+
+          filterButtons.forEach(function (b) {
+            b.classList.remove('active');
+          });
+          btn.classList.add('active');
+
+          certCards.forEach(function (card) {
+            var category = card.getAttribute('data-category');
+            card.classList.remove('animate-in');
+
+            if (selectedFilter === 'all' || category === selectedFilter) {
+              card.classList.remove('hidden');
+              // 觸發重新進場動畫
+              void card.offsetWidth;
+              card.classList.add('animate-in');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 4. 一鍵複製聯絡資訊與自訂 Toast 提示 (相容 iFrame 與 GitHub Pages)
+      var toastEl = document.getElementById('copyToast');
+      var toastTextEl = document.getElementById('toastText');
+      var toastTimer = null;
+
+      function showToast(message) {
+        if (!toastEl || !toastTextEl) return;
+        toastTextEl.textContent = message;
+        toastEl.classList.add('show');
+        if (toastTimer) {
+          clearTimeout(toastTimer);
+        }
+        toastTimer = setTimeout(function () {
+          toastEl.classList.remove('show');
+        }, 2800);
+      }
+
+      function copyTextToClipboard(text, label) {
+        var successMessage = '已複製' + label + '：' + text;
+
+        // 優先使用相容性高的 execCommand 備援以支援各種嵌入環境
+        try {
+          var tempInput = document.createElement('textarea');
+          tempInput.value = text;
+          tempInput.setAttribute('readonly', '');
+          tempInput.style.position = 'fixed';
+          tempInput.style.left = '-9999px';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          var copied = document.execCommand('copy');
+          document.body.removeChild(tempInput);
+
+          if (copied) {
+            showToast(successMessage);
+            return;
+          }
+        } catch (err) {
+          // 繼續嘗試 Clipboard API
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            showToast(successMessage);
+          }).catch(function () {
+            showToast('請手動選取複製：' + text);
+          });
+        } else {
+          showToast('請手動選取複製：' + text);
+        }
+      }
+
+      var copyTriggers = document.querySelectorAll('.copy-email-trigger');
+      copyTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var textToCopy = trigger.getAttribute('data-copy') || '';
+          var label = trigger.getAttribute('data-label') || '資訊';
+          copyTextToClipboard(textToCopy, label);
+        });
+      });
+
+      // 5. 捲動時自動標記目前所在區塊的導覽連結
+      var sections = document.querySelectorAll('main section[id]');
+      var desktopLinks = document.querySelectorAll('.nav-links .nav-link');
+
+      function updateActiveNav() {
+        var scrollPos = window.scrollY + 130;
+        sections.forEach(function (sec) {
+          var top = sec.offsetTop;
+          var height = sec.offsetHeight;
+          var id = sec.getAttribute('id');
+
+          if (scrollPos >= top && scrollPos < top + height) {
+            desktopLinks.forEach(function (link) {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
+    })();
+  </script>
+</body>
+</html>
